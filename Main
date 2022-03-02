@@ -1,0 +1,31 @@
+game:GetService("Chat"):Chat(game.Players.LocalPlayer.Character.Head, "Hello ".. game.Players.LocalPlayer.Name.. ", the admin has loaded! To view commands: Say ;Commands!")
+game.Players.LocalPlayer.Chatted:Connect(function(Msg)
+	if Msg == ";Goto" or Msg == ";goto" then
+		game:GetService("Chat"):Chat(game.Players.LocalPlayer.Character.Head, "Which player would you like to teleport to?")
+		game.Players.LocalPlayer.Chatted:Connect(function(Player)
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players:FindFirstChild(Player).Character.HumanoidRootPart.CFrame
+			end)
+	else if Msg == ";Commands" or Msg == ";commands" then
+			game:GetService("Chat"):Chat(game.Players.LocalPlayer.Character.Head, "There are 2 commands! Goto, music, stopmusic and reset")
+		else if Msg == ";Music" or Msg == ";music" then
+				game:GetService("Chat"):Chat(game.Players.LocalPlayer.Character.Head, "Please say the song ID.")
+				game.Players.LocalPlayer.Chatted:Connect(function(Song)
+					local MusicID = Song
+					game:GetService("Chat"):Chat(game.Players.LocalPlayer.Character.Head, "What volume do you want it to be?")
+					game.Players.LocalPlayer.Chatted:Connect(function(Volume)
+						local Music = Instance.new("Sound", workspace)
+						Music.Volume = Volume
+						Music.SoundId = MusicID
+						Music:Play()
+					end)
+				end)
+			else if Msg == ";StopMusic" or Msg == ";Stopmusic" or Msg == ";stopMusic" or Msg == ";stopmusic" then
+					game.Workspace.Sound:Destroy()
+				else if Msg == ";Reset" or Msg == ";reset" then
+						game.Players.LocalPlayer.Character.Humanoid.Health = 0
+					end
+				end
+			end
+		end
+	end
+end)
