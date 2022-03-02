@@ -1,0 +1,9 @@
+game:GetService("Chat"):Chat(game.Players.LocalPlayer.Character.Head, "Teleport to player hack loaded! Say ;Goto or ;goto to teleport!")
+game.Players.LocalPlayer.Chatted:Connect(function(Msg)
+	if Msg == ";Goto" or Msg == ";goto" then
+		game:GetService("Chat"):Chat(game.Players.LocalPlayer.Character.Head, "Which player would you like to teleport to?")
+		game.Players.LocalPlayer.Chatted:Connect(function(Player)
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players:FindFirstChild(Player).Character.HumanoidRootPart.CFrame
+		end)
+	end
+end)
