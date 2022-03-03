@@ -1,12 +1,23 @@
+game:GetService("Chat"):Chat(game.Players.LocalPlayer.Character.Head, "Loading servers...")
+wait(2)
+game:GetService("Chat"):Chat(game.Players.LocalPlayer.Character.Head, "Loading commands...")
+wait(0.5)
+game:GetService("Chat"):Chat(game.Players.LocalPlayer.Character.Head, "Loading camera...")
+wait(3)
+game:GetService("Chat"):Chat(game.Players.LocalPlayer.Character.Head, "Loading data...")
+wait(5)
+game:GetService("Chat"):Chat(game.Players.LocalPlayer.Character.Head, "Loading extras...")
+wait(5)
 game:GetService("Chat"):Chat(game.Players.LocalPlayer.Character.Head, "Hello ".. game.Players.LocalPlayer.Name.. ", the admin has loaded! To view commands: Say ;Commands!")
 game.Players.LocalPlayer.Chatted:Connect(function(Msg)
 	if Msg == ";Goto" or Msg == ";goto" then
 		game:GetService("Chat"):Chat(game.Players.LocalPlayer.Character.Head, "Which player would you like to teleport to?")
 		game.Players.LocalPlayer.Chatted:Connect(function(Player)
 			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players:FindFirstChild(Player).Character.HumanoidRootPart.CFrame
+			wait(904218321789377123627189764625681924726764532189382175369213920163621767380296184565213902184821763082139852163908129845261739821783752163782109846516273819204865627387678987656789876545678987656789)
 			end)
 	else if Msg == ";Commands" or Msg == ";commands" then
-			game:GetService("Chat"):Chat(game.Players.LocalPlayer.Character.Head, "There are 2 commands! Goto, music, stopmusic and reset")
+			game:GetService("Chat"):Chat(game.Players.LocalPlayer.Character.Head, "There are 2 commands! Goto, music, stopmusic, reset and view!")
 		else if Msg == ";Music" or Msg == ";music" then
 				game:GetService("Chat"):Chat(game.Players.LocalPlayer.Character.Head, "Please say the song ID.")
 				game.Players.LocalPlayer.Chatted:Connect(function(Song)
@@ -17,12 +28,22 @@ game.Players.LocalPlayer.Chatted:Connect(function(Msg)
 						Music.Volume = Volume
 						Music.SoundId = MusicID
 						Music:Play()
+						wait("904218321789377123627189764625681924726764532189382175369213920163621767380296184565213902184821763082139852163908129845261739821783752163782109846516273819204865627387678987656789876545678987656789")
 					end)
 				end)
 			else if Msg == ";StopMusic" or Msg == ";Stopmusic" or Msg == ";stopMusic" or Msg == ";stopmusic" then
 					game.Workspace.Sound:Destroy()
+					wait(904218321789377123627189764625681924726764532189382175369213920163621767380296184565213902184821763082139852163908129845261739821783752163782109846516273819204865627387678987656789876545678987656789)
 				else if Msg == ";Reset" or Msg == ";reset" then
 						game.Players.LocalPlayer.Character.Humanoid.Health = 0
+						wait(904218321789377123627189764625681924726764532189382175369213920163621767380296184565213902184821763082139852163908129845261739821783752163782109846516273819204865627387678987656789876545678987656789)
+					else if Msg == ";View" or Msg == ";view" then
+							game:GetService("Chat"):Chat(game.Players.LocalPlayer.Character.Head, "Which player would you like to view?")
+							game.Players.LocalPlayer.Chatted:Connect(function(Player)
+								game.Workspace.Camera.CameraSubject = game.Players:FindFirstChild(Player).Character
+								wait(904218321789377123627189764625681924726764532189382175369213920163621767380296184565213902184821763082139852163908129845261739821783752163782109846516273819204865627387678987656789876545678987656789)
+							end)
+						end
 					end
 				end
 			end
